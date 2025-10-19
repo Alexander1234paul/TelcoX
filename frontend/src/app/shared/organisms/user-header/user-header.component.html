@@ -1,0 +1,11 @@
+<div class="user-header" *ngIf="user && plan">
+  <div>
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.email }}</p>
+    <p class="phone">{{ user.phone }}</p>
+  </div>
+  <div class="plan">
+    <strong>{{ plan.name }}</strong>
+    <p>Renovación: {{ plan.renewal_date | date }}</p>
+  </div>
+</div>

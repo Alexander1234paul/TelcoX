@@ -1,0 +1,60 @@
+.info-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    color: #fff;
+    margin-right: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+    .material-symbols-rounded {
+      font-size: 30px;
+      line-height: 1;
+    }
+  }
+
+  .content {
+    flex: 1;
+
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 0.4rem;
+    }
+
+    .value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 0.4rem 0;
+    }
+
+    mat-progress-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #f3f4f6;
+
+      .mat-mdc-progress-bar-primary {
+        background: linear-gradient(90deg, #2196f3, #42a5f5);
+      }
+    }
+  }
+}

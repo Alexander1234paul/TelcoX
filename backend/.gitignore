@@ -1,0 +1,48 @@
+# Entornos virtuales
+venv/
+
+
+# Archivos de base de datos locales
+*.sqlite3
+*.db
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.pot
+*.mo
+
+# Cachés y coverage
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Archivos de build y distribución
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Archivos de IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.orig
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de Docker y Compose
+docker-compose.override.yml
+    

@@ -1,0 +1,23 @@
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004aad;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .plan {
+    text-align: right;
+  }
+
+  .phone {
+    font-weight: 600;
+  }
+}

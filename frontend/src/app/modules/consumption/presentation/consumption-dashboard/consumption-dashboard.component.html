@@ -1,0 +1,82 @@
+<div class="dashboard-wrapper" *ngIf="dashboard$ | async as data">
+  <!-- Tarjeta del usuario -->
+  <section class="user-card">
+    <div class="user-info">
+      <h2 class="user-title">
+        Hola, <span class="highlight">{{ data.user.name }}</span> 👋
+      </h2>
+
+      <div class="user-meta">
+        <div class="meta-item">
+          <span class="material-symbols-rounded meta-icon">call</span>
+          <span>{{ data.user.phone }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="material-symbols-rounded meta-icon">mail</span>
+          <span>{{ data.user.email }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="material-symbols-rounded meta-icon">credit_card</span>
+          <span>{{ data.plan.name }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="material-symbols-rounded meta-icon">event</span>
+          <span>Renueva: {{ data.plan.renewal_date | date : 'longDate' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-bills">
+      <div class="bill-item">
+        <h4>Última factura</h4>
+        <p class="bill-amount">${{ data.last_bill.amount }}</p>
+        <p
+          class="bill-status"
+          [ngClass]="{
+            paid: data.last_bill.status === 'PAID',
+            pending: data.last_bill.status !== 'PAID'
+          }"
+        >
+          {{ data.last_bill.status === 'PAID' ? 'Pagada' : 'Pendiente' }}
+        </p>
+      </div>
+      <div class="bill-item">
+        <h4>Actualizado</h4>
+        <p class="updated-time">{{ currentTime | date : 'shortTime' }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarjetas de consumo -->
+  <section class="cards-grid">
+    <app-info-card
+      title="Saldo disponible"
+      [value]="'$' + data.balance.toFixed(2)"
+      color="linear-gradient(135deg, #2e7d32, #66bb6a)"
+      icon="payments"
+    >
+    </app-info-card>
+
+    <app-info-card
+      title="Datos móviles"
+      [value]="data.consumption.data_balance + ' GB'"
+      color="linear-gradient(135deg, #7e57c2, #ba68c8)"
+      icon="wifi"
+      [progress]="getPercent(data.consumption.data_balance, 10)"
+    >
+    </app-info-card>
+
+    <app-info-card
+      title="Minutos de voz"
+      [value]="data.consumption.voice_balance + ' min'"
+      color="linear-gradient(135deg, #0288d1, #4fc3f7)"
+      icon="phone_in_talk"
+      [progress]="getPercent(data.consumption.voice_balance, 100)"
+    >
+    </app-info-card>
+  </section>
+</div>
+
+<!-- <ng-template #errorTpl>
+  <app-error-message message="No se pudieron cargar los datos del usuario."></app-error-message>
+</ng-template> -->
